@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopZone - E-Commerce</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+           <link rel="stylesheet" href="/home.css">
+    
+    <link rel="stylesheet" href="/shop.css">>
+    
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+
+<header class="header">
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <p>🚚 Free Shipping on Orders Above ₹999</p>
+        <p>Call Us: +91 98765 43210</p>
+    </div>
+
+    <!-- Main Header -->
+    <div class="main-header">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Shop<span>Zone</span></span>
+        </a>
+
+        <!-- Search -->
+        <div class="search-box">
+            <input type="text" id="searchInput"
+                   placeholder="Search products...">
+
+            <button onclick="searchProduct()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <!-- Header Icons -->
+        <div class="header-icons">
+
+
+
+             <a href="/account.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Account</span>
+            </a>
+
+            <a href="/wishlist.html">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="/cart.html" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+                <b id="cartCount">0</b>
+            </a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+
+        <ul>
+            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/shop.html">Shop</a></li>
+            <li><a href="/men.html">Men</a></li>
+            <li><a href="/women.html">Women</a></li>
+            <li><a href="/Electronics.html">Electronics</a></li>
+            <li><a href="/Jewellery.html">Jewellery</a></li>
+            <li><a href="/offers.html">Offers</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+<!-- ================= SHOP SECTION ================= -->
+
+<section class="shop-section" id="shop">
+
+    <div class="section-heading">
+
+        <span>OUR PRODUCTS</span>
+
+        <h2>Explore Our <strong>Products</strong></h2>
+
+        <p>
+            Discover our latest products at the best prices.
+        </p>
+
+    </div>
+
+
+    <!-- Category Filter -->
+
+    <div class="category-filter">
+
+        <button class="filter-btn active" data-category="all">
+            All
+        </button>
+
+        <button class="filter-btn" data-category="fashion">
+            Fashion
+        </button>
+
+        <button class="filter-btn" data-category="electronics">
+            Electronics
+        </button>
+
+        <button class="filter-btn" data-category="jewellery">
+            Jewellery
+        </button>
+
+        <button class="filter-btn" data-category="shoes">
+            Shoes
+        </button>
+
+    </div>
+
+
+    <!-- Products -->
+
+    <div class="products-grid">
+
+
+<div class="product-info"
+
+     onclick="openProductPopup()">
+     <div class="product-image">
+                <img src="/product/t-shirt.webp" alt="">
+
+                <span class="discount">
+                    -25%
+                </span>
+
+               
+<button class="wishlist" onclick="addToWishlist(this);
+ window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+
+                <div class="product-placeholder">
+                 <img src="/product/t-shirt.webp" alt="">
+                </div>
+
+            </div>
+    
+    
+
+    <span class="product-category">
+        Shoes
+    </span>
+
+    <h3>
+        Premium Sports Shoes
+    </h3>
+
+    <div class="rating">
+        ★★★★★
+        <span>(94)</span>
+    </div>
+
+    <div class="price">
+        <strong>₹2,199</strong>
+        <del>₹2,799</del>
+    </div>
+
+    <button
+        class="add-cart"
+        onclick="event.stopPropagation(); addProductToCart(
+            'Premium Sports Shoes',
+            2199,
+            '/product/jewllerys/Princess Unique Jewellery Set'
+        )">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+        Add to Cart
+
+    </button>
+
+</div>
+
+
+
+
+<!-- =========================================
+     PRODUCT DETAILS POPUP
+========================================= -->
+
+<div class="product-modal" id="productModal">
+
+    <div
+        class="product-modal-overlay"
+        onclick="closeProductPopup()">
+    </div>
+
+
+    <div
+        class="product-modal-box"
+        onclick="event.stopPropagation();">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            type="button"
+            class="product-modal-close"
+            onclick="closeProductPopup()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- =================================
+             LEFT - PRODUCT IMAGES
+        ================================== -->
+
+        <div class="modal-gallery">
+
+            <div class="modal-main-image">
+
+                <span class="modal-discount">
+                    -22%
+                </span>
+
+
+                <img
+                    id="modalProductImage"
+                    src="../images/sports-shoes-1.jpg"
+                    alt="Premium Sports Shoes"
+                >
+
+
+                <!-- PREVIOUS -->
+
+                <button
+                    type="button"
+                    class="modal-arrow modal-prev"
+                    onclick="changeModalImage(-1)">
+
+                    <i class="fa-solid fa-chevron-left"></i>
+
+                </button>
+
+
+                <!-- NEXT -->
+
+                <button
+                    type="button"
+                    class="modal-arrow modal-next"
+                    onclick="changeModalImage(1)">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- 4 THUMBNAILS -->
+
+            <div class="modal-thumbnails">
+
+                <img
+                    src="../images/sports-shoes-1.jpg"
+                    class="modal-thumb active"
+                    onclick="showModalImage(0)"
+                    alt="Sports Shoes 1"
+                >
+
+                <img
+                    src="../images/sports-shoes-2.jpg"
+                    class="modal-thumb"
+                    onclick="showModalImage(1)"
+                    alt="Sports Shoes 2"
+                >
+
+                <img
+                    src="../images/sports-shoes-3.jpg"
+                    class="modal-thumb"
+                    onclick="showModalImage(2)"
+                    alt="Sports Shoes 3"
+                >
+
+                <img
+                    src="../images/sports-shoes-4.jpg"
+                    class="modal-thumb"
+                    onclick="showModalImage(3)"
+                    alt="Sports Shoes 4"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             RIGHT - PRODUCT DETAILS
+        ================================== -->
+
+        <div class="modal-product-info">
+
+
+            <span class="modal-category">
+                Shoes
+            </span>
+
+
+            <h2>
+                Premium Sports Shoes
+            </h2>
+
+
+            <div class="modal-rating">
+
+                ★★★★★
+
+                <span>
+                    (94 reviews)
+                </span>
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div class="modal-price">
+
+                <strong>
+                    ₹2,199
+                </strong>
+
+                <del>
+                    ₹2,799
+                </del>
+
+                <span>
+                    22% OFF
+                </span>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <p class="modal-description">
+
+                Step up your game with these premium
+                sports shoes. Designed for comfort,
+                style and performance. Perfect for
+                running, gym, casual wear and
+                everyday use.
+
+            </p>
+
+
+            <!-- =================================
+                 FEATURES
+            ================================== -->
+
+            <div class="product-features">
+
+                <div>
+                    <i class="fa-solid fa-feather"></i>
+                    <span>
+                        Lightweight<br>
+                        Design
+                    </span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>
+                        Durable<br>
+                        Material
+                    </span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-wind"></i>
+                    <span>
+                        Breathable<br>
+                        Fabric
+                    </span>
+                </div>
+
+
+                <div>
+                    <i class="fa-regular fa-star"></i>
+                    <span>
+                        Stylish<br>
+                        Look
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 SIZE
+            ================================== -->
+
+            <div class="size-section">
+
+                <h4>
+                    Size
+                </h4>
+
+
+                <div class="size-options">
+
+                    <button
+                        type="button"
+                        class="size-btn"
+                        onclick="selectProductSize(this)">
+                        6
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="size-btn"
+                        onclick="selectProductSize(this)">
+                        7
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="size-btn selected"
+                        onclick="selectProductSize(this)">
+                        8
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="size-btn"
+                        onclick="selectProductSize(this)">
+                        9
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="size-btn"
+                        onclick="selectProductSize(this)">
+                        10
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 QUANTITY
+            ================================== -->
+
+            <div class="quantity-section">
+
+                <h4>
+                    Quantity
+                </h4>
+
+
+                <div class="quantity-box">
+
+                    <button
+                        type="button"
+                        onclick="changeProductQuantity(-1)">
+                        −
+                    </button>
+
+
+                    <span id="productQuantity">
+                        1
+                    </span>
+
+
+                    <button
+                        type="button"
+                        onclick="changeProductQuantity(1)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 BUTTONS
+            ================================== -->
+
+            <div class="modal-buttons">
+
+                <!-- ADD TO CART -->
+
+                <button
+                    type="button"
+                    class="modal-add-cart"
+                    id="modalAddCartBtn"
+                    onclick="addModalProductToCart(event)">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Add to Cart
+
+                </button>
+
+
+                <!-- WISHLIST -->
+
+                <button
+                    type="button"
+                    class="modal-wishlist"
+                    id="modalWishlistBtn"
+                    onclick="addModalProductToWishlist(event)">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    Add to Wishlist
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Product 1 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+                <img src="/product/t-shirt.webp" alt="">
+
+                <span class="discount">
+                    -25%
+                </span>
+
+               
+<button class="wishlist" onclick="addToWishlist(this);
+ window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+
+                <div class="product-placeholder">
+                 <img src="/product/t-shirt.webp" alt="">
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Premium Cotton T-Shirt
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(1245)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹199</strong>
+                    <del>₹499</del>
+                </div>
+
+        
+<button class="add-cart"
+    onclick="addProductToCart(
+        'Premium Cotton T-Shirt',
+        749,
+        'shirt',
+        '/product/t-shirt.webp'
+    )">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+    Add to Cart
+
+</button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 2 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -20%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-headphones"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Wireless Headphones
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(89)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,599</strong>
+                    <del>₹1,999</del>
+                </div>
+
+               <button class="add-cart" onclick="addProductToCart('Wireless Headphones', 1599, 'headphones')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 3 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -30%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Elegant Jewellery Set
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(67)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,049</strong>
+                    <del>₹1,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Elegant Jewellery Set', 1049, 'gem')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 4 -->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -15%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Casual Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>(103)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Casual Running Shoes', 1699, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 5 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -18%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Smart Mobile Phone
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(210)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹14,999</strong>
+                    <del>₹17,999</del>
+                </div>
+
+            <button class="add-cart" onclick="addProductToCart('Smart Mobile Phone', 14999, 'mobile-screen-button')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 6 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -35%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Women's Stylish Dress
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(156)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Women Stylish Dress', 1299, 'person-dress')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 7 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -28%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Premium Gold Ring
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(78)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <del>₹3,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Gold Ring', 2499, 'ring')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Product 8 -->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -15%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Casual Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>(103)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Casual Running Shoes', 1699, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 9 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -18%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Smart Mobile Phone
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(210)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹14,999</strong>
+                    <del>₹17,999</del>
+                </div>
+
+            <button class="add-cart" onclick="addProductToCart('Smart Mobile Phone', 14999, 'mobile-screen-button')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 10 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -35%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Women's Stylish Dress
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(156)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Women Stylish Dress', 1299, 'person-dress')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 11 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -28%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Premium Gold Ring
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(78)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <del>₹3,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Gold Ring', 2499, 'ring')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+<!-- Product 12-->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -15%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Casual Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>(103)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Casual Running Shoes', 1699, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 13 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -18%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Smart Mobile Phone
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(210)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹14,999</strong>
+                    <del>₹17,999</del>
+                </div>
+
+            <button class="add-cart" onclick="addProductToCart('Smart Mobile Phone', 14999, 'mobile-screen-button')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 14 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -35%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Women's Stylish Dress
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(156)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Women Stylish Dress', 1299, 'person-dress')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 15 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -28%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Premium Gold Ring
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(78)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <del>₹3,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Gold Ring', 2499, 'ring')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 16 -->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -15%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Casual Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>(103)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Casual Running Shoes', 1699, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 17 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -18%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Smart Mobile Phone
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(210)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹14,999</strong>
+                    <del>₹17,999</del>
+                </div>
+
+            <button class="add-cart" onclick="addProductToCart('Smart Mobile Phone', 14999, 'mobile-screen-button')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 18 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -35%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Women's Stylish Dress
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(156)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Women Stylish Dress', 1299, 'person-dress')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 19 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -28%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Premium Gold Ring
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(78)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <del>₹3,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Gold Ring', 2499, 'ring')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 20 -->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -15%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Casual Running Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★☆
+                    <span>(103)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Casual Running Shoes', 1699, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 21 -->
+
+        <div class="product-card" data-category="electronics">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -18%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Electronics
+                </span>
+
+                <h3>
+                    Smart Mobile Phone
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(210)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹14,999</strong>
+                    <del>₹17,999</del>
+                </div>
+
+            <button class="add-cart" onclick="addProductToCart('Smart Mobile Phone', 14999, 'mobile-screen-button')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 22 -->
+
+        <div class="product-card" data-category="fashion">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -35%
+                </span>
+
+               <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-person-dress"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Fashion
+                </span>
+
+                <h3>
+                    Women's Stylish Dress
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(156)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <del>₹1,999</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Women Stylish Dress', 1299, 'person-dress')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product 23 -->
+
+        <div class="product-card" data-category="jewellery">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -28%
+                </span>
+
+              <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-ring"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Jewellery
+                </span>
+
+                <h3>
+                    Premium Gold Ring
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(78)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <del>₹3,499</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Gold Ring', 2499, 'ring')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+        <!-- Product 24 -->
+
+        <div class="product-card" data-category="shoes">
+
+            <div class="product-image">
+
+                <span class="discount">
+                    -22%
+                </span>
+
+                <button class="wishlist" onclick="addToWishlist(this); window.location.href='wishlist.html';"> <i class="fa-regular fa-heart"></i> </button>
+
+                <div class="product-placeholder">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Shoes
+                </span>
+
+                <h3>
+                    Premium Sports Shoes
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                    <span>(94)</span>
+                </div>
+
+                <div class="price">
+                    <strong>₹2,199</strong>
+                    <del>₹2,799</del>
+                </div>
+
+                <button class="add-cart" onclick="addProductToCart('Premium Sports Shoes', 2199, 'shoe-prints')"> <i class="fa-solid fa-cart-shopping"></i> Add to Cart </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<div class="next-button-container">
+   <a href="page1.html"><button class="next-btn" onclick="nextPage()">
+        Next <i class="fa-solid fa-arrow-right"></i>
+       
+    </button> </a> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+
+
+
+
+
+</body>
+</html>
