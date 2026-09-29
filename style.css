@@ -1,0 +1,1573 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #334155;
+    background: #f8fafc;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ================= TOP BAR ================= */
+
+.top-bar {
+    background: #0f172a;
+    color: #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 9px 7%;
+
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================= MAIN HEADER ================= */
+
+.main-header {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 15px 7%;
+
+    background: #ffffff;
+}
+
+
+
+
+/* =========================================
+   MOBILE ONLY - HEADER LOCK
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 99999;
+        background: var(--bg-color, #ffffff);
+    }
+
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    color: #0f172a;
+}
+
+.logo i {
+    font-size: 30px;
+    color: #f97316;
+}
+
+.logo span span {
+    color: #f97316;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box {
+    flex: 1;
+
+    max-width: 600px;
+
+    display: flex;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 13px 16px;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+
+    color: #334155;
+}
+
+.search-box input::placeholder {
+    color: #94a3b8;
+}
+
+.search-box button {
+    width: 55px;
+
+    border: none;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    background: #ea580c;
+}
+
+
+/* ================= HEADER ICONS ================= */
+
+.header-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+}
+
+.header-icons a {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 12px;
+
+    color: #334155;
+
+    transition: 0.3s;
+}
+
+.header-icons i {
+    font-size: 21px;
+}
+
+.header-icons a:hover {
+    color: #f97316;
+}
+
+
+
+
+
+
+/* ================= CART ================= */
+
+.cart b {
+    position: absolute;
+
+    top: -8px;
+    right: -9px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #0f172a;
+
+    border-top: 1px solid #1e293b;
+}
+
+.navbar ul {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    padding: 15px;
+}
+
+.navbar a {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    transition: 0.3s;
+}
+
+.navbar a.active {
+    color: orange;
+}
+
+
+
+.navbar a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a.active {
+    color: orange;
+    font-weight: 700;
+}
+
+/* Active link ke neeche orange line */
+.navbar a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: orange;
+    border-radius: 5px;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.menu-btn {
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    color: #0f172a;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+
+
+
+
+/* ================= OFFER SECTION ================= */
+
+.offer-section {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 430px;
+
+    padding: 60px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    background: #0f172a;
+
+    color: #ffffff;
+}
+
+
+/* Orange Decorative Circle */
+
+.offer-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: #f97316;
+
+    opacity: 0.08;
+
+    right: 10%;
+    top: -100px;
+}
+
+
+/* CONTENT */
+
+.offer-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+.offer-label {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-bottom: 18px;
+
+    border-radius: 30px;
+
+    background: rgba(249, 115, 22, 0.15);
+
+    color: #fb923c;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.offer-content h2 {
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+.offer-content h2 span {
+    color: #f97316;
+}
+
+.offer-content > p {
+    max-width: 560px;
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+.offer-content > p strong {
+    color: #fb923c;
+}
+
+
+/* ================= COUNTDOWN ================= */
+
+.countdown {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.time-box {
+    width: 85px;
+    height: 82px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    color: #0f172a;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.time-box span {
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: #f97316;
+}
+
+.time-box small {
+    margin-top: 4px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    color: #64748b;
+}
+
+
+/* ================= OFFER BUTTON ================= */
+
+.offer-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    border-radius: 5px;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.offer-btn:hover {
+    background: #ea580c;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= DISCOUNT AREA ================= */
+
+.offer-image {
+    position: relative;
+
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+.offer-image > i {
+    font-size: 150px;
+
+    color: #ffffff;
+
+    opacity: 0.95;
+}
+
+
+/* DISCOUNT CIRCLE */
+
+.discount-circle {
+    position: absolute;
+
+    z-index: 3;
+
+    top: 0;
+    right: 0;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    transform: rotate(10deg);
+
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.35);
+}
+
+.discount-circle strong {
+    font-size: 35px;
+
+    line-height: 1;
+}
+
+.discount-circle span {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-top: 4px;
+}
+
+
+/* ================= OFFER RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .offer-section {
+        padding: 50px 6%;
+
+        text-align: center;
+
+        justify-content: center;
+    }
+
+    .offer-content {
+        max-width: 100%;
+    }
+
+    .offer-content h2 {
+        font-size: 40px;
+    }
+
+    .offer-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .countdown {
+        justify-content: center;
+    }
+
+    .offer-btn {
+        margin: auto;
+    }
+
+    .offer-image {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .offer-section {
+        padding: 45px 20px;
+    }
+
+    .offer-content h2 {
+        font-size: 32px;
+    }
+
+    .countdown {
+        gap: 7px;
+    }
+
+    .time-box {
+        width: 68px;
+        height: 72px;
+    }
+
+    .time-box span {
+        font-size: 22px;
+    }
+
+    .time-box small {
+        font-size: 9px;
+    }
+}
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 60px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #ffffff 60%
+        );
+}
+
+.hero p:first-child {
+    color: #f97316;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 55px;
+
+    max-width: 650px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    color: #0f172a;
+}
+
+.hero h1 span {
+    color: #f97316;
+}
+
+.hero-text {
+    max-width: 550px;
+
+    color: #64748b;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.shop-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 25px;
+
+    background: #f97316;
+
+    color: #ffffff;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.shop-btn:hover {
+    background: #ea580c;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= NEWSLETTER ================= */
+
+.newsletter {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 45px 7%;
+
+    background: #f97316;
+
+    color: #ffffff;
+}
+
+.newsletter h2 {
+    margin-bottom: 8px;
+}
+
+.newsletter p {
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    display: flex;
+
+    max-width: 500px;
+
+    width: 100%;
+}
+
+.newsletter-form input {
+    flex: 1;
+
+    padding: 14px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 5px 0 0 5px;
+}
+
+.newsletter-form button {
+    padding: 14px 22px;
+
+    border: none;
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    border-radius: 0 5px 5px 0;
+
+    font-weight: bold;
+}
+
+.newsletter-form button:hover {
+    background: #020617;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #0f172a;
+
+    color: #cbd5e1;
+}
+
+.footer-container {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    padding: 60px 7%;
+}
+
+
+/* ================= FOOTER LOGO ================= */
+
+.footer-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ffffff;
+
+    margin-bottom: 20px;
+}
+
+.footer-logo i {
+    color: #f97316;
+}
+
+.footer-logo span {
+    color: #f97316;
+}
+
+
+/* ================= FOOTER TEXT ================= */
+
+.footer-column > p {
+    line-height: 1.7;
+
+    color: #94a3b8;
+
+    max-width: 320px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ================= FOOTER HEADINGS ================= */
+
+.footer-column h3 {
+    color: #ffffff;
+
+    margin-bottom: 20px;
+
+    font-size: 18px;
+}
+
+
+/* ================= FOOTER LINKS ================= */
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #94a3b8;
+
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #fb923c;
+
+    padding-left: 5px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.footer-column p i {
+    width: 22px;
+
+    color: #f97316;
+}
+
+
+/* ================= SOCIAL ICONS ================= */
+
+.social-icons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.social-icons a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1e293b;
+
+    color: #ffffff;
+
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #f97316;
+
+    transform: translateY(-3px);
+}
+
+
+/* ================= BOTTOM FOOTER ================= */
+
+.footer-bottom {
+    border-top: 1px solid #1e293b;
+
+    padding: 20px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+.footer-bottom div {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .main-header {
+        padding: 15px 4%;
+    }
+
+    .top-bar {
+        padding: 9px 4%;
+    }
+
+    .navbar ul {
+        gap: 18px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .newsletter {
+        padding: 40px 4%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .top-bar {
+        justify-content: center;
+    }
+
+    .top-bar p:last-child {
+        display: none;
+    }
+
+
+    .main-header {
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+    }
+
+    .header-icons {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar.show {
+        display: block;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 0;
+
+        padding: 10px 0;
+    }
+
+    .navbar li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .navbar li a {
+        display: block;
+
+        padding: 12px;
+    }
+
+
+    .hero {
+        min-height: 450px;
+
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+
+    .newsletter {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 40px 6%;
+    }
+
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        padding: 45px 6%;
+
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        padding: 20px 6%;
+    }
+
+    .footer-bottom div {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SHOPZONE WELCOME POPUP
+========================================= */
+
+.welcome-popup {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+/* Overlay */
+
+.popup-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+}
+
+/* Popup Box */
+
+.popup-box {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 450px;
+
+    padding: 40px 35px;
+
+    text-align: center;
+
+    background: var(--card-bg, #ffffff);
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border-color, #eeeeee);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    animation: popupShow 0.4s ease;
+}
+
+/* Animation */
+
+@keyframes popupShow {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+/* Close Button */
+
+.popup-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--bg-secondary, #f3f3f3);
+    color: var(--text-color, #333);
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.popup-close:hover {
+    background: var(--primary-color, orange);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Gift Icon */
+
+.popup-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary-color, orange);
+    color: #fff;
+
+    font-size: 30px;
+}
+
+/* Small Heading */
+
+.popup-small-title {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--primary-color, orange);
+}
+
+/* Main Heading */
+
+.popup-box h2 {
+    margin: 0 0 12px;
+
+    font-size: 30px;
+
+    color: var(--text-color, #222);
+}
+
+.popup-box h2 strong {
+    color: var(--primary-color, orange);
+}
+
+/* Paragraph */
+
+.popup-box p {
+    margin: 0 auto 18px;
+
+    max-width: 350px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    color: var(--text-secondary, #666);
+}
+
+/* Offer */
+
+.popup-offer {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    background: var(--bg-secondary, #f5f5f5);
+
+    color: var(--text-color, #333);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Shop Button */
+
+.popup-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 25px;
+
+    border-radius: 8px;
+
+    background: var(--primary-color, orange);
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.popup-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   COUPON BOX
+========================================= */
+
+.coupon-box {
+    margin: 20px 0;
+
+    padding: 14px;
+
+    border: 1.5px dashed var(--primary-color, orange);
+
+    border-radius: 12px;
+
+    background: var(--bg-secondary, #f8f8f8);
+}
+
+.coupon-box > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--text-secondary, #666);
+}
+
+.coupon-code-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.coupon-code-row strong {
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    color: var(--primary-color, orange);
+}
+
+.coupon-code-row button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 8px 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: var(--primary-color, orange);
+
+    color: #fff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.coupon-code-row button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   COPIED MESSAGE
+========================================= */
+
+.coupon-copied {
+    font-size: 12px;
+
+    color: #16a34a;
+
+    margin-top: 8px;
+
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .coupon-code-row {
+        gap: 8px;
+    }
+
+    .coupon-code-row strong {
+        font-size: 18px;
+    }
+
+    .coupon-code-row button {
+        padding: 7px 10px;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .popup-box {
+        width: 88%;
+        padding: 35px 22px;
+        border-radius: 16px;
+    }
+
+    .popup-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .popup-box h2 {
+        font-size: 24px;
+    }
+
+    .popup-box p {
+        font-size: 13px;
+    }
+
+    .popup-btn {
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+/* =========================================
+   COUPON INPUT
+========================================= */
+
+.coupon-input-box {
+    margin: 22px 0;
+    text-align: left;
+}
+
+.coupon-input-box label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-color, #333);
+}
+
+.coupon-input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.coupon-input-row input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 14px;
+
+    border: 1.5px solid var(
+        --border-color,
+        #dddddd
+    );
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background: var(
+        --input-bg,
+        #ffffff
+    );
+
+    color: var(
+        --input-text,
+        #222222
+    );
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s;
+}
+
+.coupon-input-row input:focus {
+    border-color: var(
+        --primary-color,
+        orange
+    );
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255, 165, 0, 0.12);
+}
+
+.coupon-input-row button {
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(
+        --primary-color,
+        orange
+    );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.coupon-input-row button:hover {
+    transform: translateY(-2px);
+}
+
+#couponMessage {
+    min-height: 18px;
+
+    margin: 7px 0 0;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* Success */
+
+#couponMessage.success {
+    color: #16a34a;
+}
+
+
+/* Error */
+
+#couponMessage.error {
+    color: #dc2626;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .coupon-input-row {
+        flex-direction: column;
+    }
+
+    .coupon-input-row button {
+        height: 45px;
+    }
+
+}
